@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Ricardo Rosa">
+        <title>Ricardo Rosa - Index</title>
+        <link rel="icon" href="images/icon.svg" sizes="any" type="image/svg+xml">
+    </head>
+    <style>
+        @-webkit-keyframes blink {
+            from {
+                opacity: 1.0;
+            }
+            to {
+                opacity: 0.0;
+            }
+        }
+        
+        blink {
+            -webkit-animation-name: blink;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+            -webkit-animation-duration: 1s;
+        }
+
+
+        #content {
+            margin: 200px auto;
+            width: 100%;
+        }
+
+        .midias {
+            margin: auto;
+            width: 334px;
+            margin-top: 50px;
+        }
+
+        .title_site{
+            font-size: 62px;
+            text-align: center;
+        }
+
+        #subtitle_site{
+            font-size: 12px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            width: 36px;
+            height: 36px;
+            padding: 10px;
+        }
+
+        img {
+            width: 36px;
+            height: 36px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            li {
+                width: 30px;
+                height: 30px;
+                padding: 5px;
+            }
+            .midias {
+                width: 246px;
+
+            }
+        }
+
+    </style>
+    <body>
+        <div id="content">
+            <div class="title_site">
+                Ricardo Rosa
+            </div>
+            <div id="subtitle_site">
+                <span>Desenvolvendo para a Web</span><blink>|</blink>
+            </div>
+            <div class="midias">
+                <ul class="inline">
+                    <li>
+                        <a class="social-link" title="Visit me on LinkedIn" href="http://www.linkedin.com/in/ricardosergiorosa" target="_blank" rel="noopener noreferrer">
+                            <img src="images/linkedin.svg"/>
+                        </a>
+                    </li>
+                    <li><a class="social-link" title="Visit me on Facebook" href="http://www.facebook.com/ricardosergio81" target="_blank" rel="noopener noreferrer">
+                            <img src="images/facebook.svg"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" title="Visit me on Twitter" href="https://www.twitter.com/ricardosergio_" target="_blank" rel="noopener noreferrer">
+                            <img src="images/twitter.svg"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" title="Visit me on Instagram" href="https://instagram.com/ricardosergio81" target="_blank" rel="noopener noreferrer">
+                            <img src="images/instagram.svg"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" title="Visit me on Wordpress" href="http://rsrosa.epizy.com/wp/" target="_blank" rel="noopener noreferrer">
+                            <img src="images/wordpress.svg"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" title="Visit me on Github" href="http://github.com/ricardosergio81" target="_blank" rel="noopener noreferrer">
+                            <img src="images/github.svg"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+
+            //CENTER CONTENT
+            var height = window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight;
+
+            var contentHeight = document.getElementById("content").offsetHeight;
+            var newHeight = (height / 2) - (contentHeight / 2);
+
+            document.getElementById("content").style.marginTop = newHeight + "px";
+
+            //WRITE IN A SUBTITLE
+            async function writeSubTile(fix, text) {
+                var subtitleSite = document.getElementById('subtitle_site').querySelector("span");
+
+                subtitleSite.innerHTML = fix;
+                var len = text.length;
+                for (i = 0; i < len; i++) {
+                    await sleep(200);
+                    newText = subtitleSite.innerHTML;
+                    newText += text[i];
+                    subtitleSite.innerHTML = newText;
+                }
+            }
+            writeSubTile('Desenvolvedor ', 'Web');
+
+        </script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136096137-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-136096137-1');
+        </script>
+
+    </body>
+</html>
